@@ -1,0 +1,48 @@
+.custom-button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Primary */
+.custom-button.primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.custom-button.primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Secondary */
+.custom-button.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.custom-button.secondary:hover {
+  background-color: var(--color-secondary-light);
+}
+
+/* Outline */
+.custom-button.outline {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.custom-button.outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Disabled */
+.custom-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

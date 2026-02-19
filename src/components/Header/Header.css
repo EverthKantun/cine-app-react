@@ -1,0 +1,29 @@
+.app-header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.app-header p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--color-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 28px;
+  }
+
+  .app-header {
+    padding: 30px 15px;
+  }
+}
