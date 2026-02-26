@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Guardianes del Tiempo",
+    "genre": "Ciencia Ficción",
+    "year": 2026,
+    "duration": "148 min",
+    "rating": "B-15",
+    "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400",
+    "description": "Una misión intergaláctica para salvar la humanidad del colapso temporal."
+  },
+  {
+    "id": 2,
+    "title": "El Último Verano",
+    "genre": "Drama",
+    "year": 2026,
+    "duration": "112 min",
+    "rating": "B",
+    "image": "https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=400",
+    "description": "Una emotiva historia sobre la familia y los recuerdos que perduran."
+  },
+  {
+    "id": 3,
+    "title": "Código Oculto",
+    "genre": "Thriller",
+    "year": 2026,
+    "duration": "125 min",
+    "rating": "B-15",
+    "image": "https://www.lavanguardia.com/peliculas-series/peliculas/codigo-oculto-branded-112090",
+    "description": "Un hacker descubre una conspiración que podría cambiar el mundo digital."
+  },
+  {
+    "id": 4,
+    "title": "Sonrisas y Lágrimas",
+    "genre": "Comedia",
+    "year": 2026,
+    "duration": "95 min",
+    "rating": "A",
+    "image": "https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=400",
+    "description": "Una comedia romántica que te hará reír y llorar al mismo tiempo."
+  },
+  {
+    "id": 5,
+    "title": "La Herencia Maldita",
+    "genre": "Terror",
+    "year": 2026,
+    "duration": "103 min",
+    "rating": "C",
+    "image": "https://images.unsplash.com/photo-1509564324749-471bd272e1ff?w=400",
+    "description": "Una familia hereda una mansión con secretos oscuros y sobrenaturales."
+  },
+  {
+    "id": 6,
+    "title": "Aventura en el Bosque",
+    "genre": "Animación",
+    "year": 2026,
+    "duration": "88 min",
+    "rating": "AA",
+    "image": "https://images.unsplash.com/photo-1543536448-d209d2d13a1c?w=400",
+    "description": "Pequeños animales del bosque se unen para salvar su hogar de la deforestación."
+  },
+  {
+    "id": 7,
+    "title": "Gladiadores Modernos",
+    "genre": "Acción",
+    "year": 2026,
+    "duration": "136 min",
+    "rating": "B-15",
+    "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400",
+    "description": "Luchadores clandestinos compiten en torneos ilegales por la supremacía."
+  },
+  {
+    "id": 8,
+    "title": "Melodías del Corazón",
+    "genre": "Musical",
+    "year": 2026,
+    "duration": "118 min",
+    "rating": "B",
+    "image": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400",
+    "description": "Una joven cantante lucha por alcanzar sus sueños en la industria musical."
+  }
+]

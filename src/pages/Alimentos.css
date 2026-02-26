@@ -1,0 +1,261 @@
+.alimentos-page {
+  min-height: 100vh;
+  background-color: #FAFAFA;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.alimentos-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #0B2B4E;
+  margin: 0 0 16px 0;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  color: #757575;
+  margin: 0;
+}
+
+/* Categories */
+.categories-section {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.categories-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #212121;
+  margin: 0 0 20px 0;
+}
+
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.category-badge {
+  padding: 10px 20px;
+  background-color: #FFFFFF;
+  color: #144272;
+  border: 2px solid #144272;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.category-badge:hover {
+  background-color: #144272;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Foods Grid */
+.foods-section {
+  margin-bottom: 60px;
+}
+
+.foods-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+/* Summary Section */
+.summary-section {
+  position: sticky;
+  bottom: 20px;
+  z-index: 100;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #0B2B4E 0%, #144272 100%);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+}
+
+.summary-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.summary-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.summary-items,
+.summary-total {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-label,
+.total-label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.summary-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFC107;
+}
+
+.total-label {
+  font-size: 16px;
+}
+
+.total-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #FFC107;
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 16px;
+  background-color: #FFC107;
+  color: #212121;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-checkout:hover {
+  background-color: #FFB300;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 193, 7, 0.4);
+}
+
+.btn-checkout:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .foods-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .alimentos-page {
+    padding: 40px 0;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .page-subtitle {
+    font-size: 16px;
+  }
+
+  .alimentos-header {
+    margin-bottom: 40px;
+  }
+
+  .categories-section {
+    margin-bottom: 40px;
+  }
+
+  .foods-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .summary-card {
+    padding: 24px;
+  }
+
+  .summary-content {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .summary-items,
+  .summary-total {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .foods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 320px) {
+  .alimentos-page {
+    padding: 30px 0;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .categories-title {
+    font-size: 18px;
+  }
+
+  .summary-title {
+    font-size: 20px;
+  }
+
+  .total-value {
+    font-size: 28px;
+  }
+
+  .btn-checkout {
+    font-size: 16px;
+  }
+}

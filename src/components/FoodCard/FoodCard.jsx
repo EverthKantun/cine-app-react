@@ -1,29 +1,40 @@
-import "./FoodCard.css"
-import Button from "../Button/Button"
+import './FoodCard.css';
 
-function FoodCard({ name, category, price, description }) {
+export function FoodCard({ food, isSelected, onSelect }) {
+  const handleSelect = () => {
+    onSelect(food.id);
+  };
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-MX', {
+      style: 'currency',
+      currency: 'MXN'
+    }).format(price);
+  };
+
   return (
-    <div className="food-card">
-      <div className="food-header">
-        <h3>{name}</h3>
-        <span className="food-price">${price}</span>
-      </div>
-
-      <p className="food-category">{category}</p>
-
-      <p className="food-description">
-        {description}
-      </p>
-
-      <div className="food-actions">
-        <Button 
-          text="Agregar al combo" 
-          variant="secondary"
-          onClick={() => alert(`Agregado: ${name}`)}
+    <div className={`food-card ${isSelected ? 'selected' : ''}`}>
+      <div className="food-image-container">
+        <img 
+          src={food.image} 
+          alt={food.name} 
+          className="food-image"
+          loading="lazy"
         />
       </div>
+      
+      <div className="food-content">
+        <div className="food-category">{food.category}</div>
+        <h3 className="food-name">{food.name}</h3>
+        <div className="food-price">{formatPrice(food.price)}</div>
+        
+        <button 
+          className={`btn-select ${isSelected ? 'selected' : ''}`}
+          onClick={handleSelect}
+        >
+          {isSelected ? '✓ Seleccionado' : 'Seleccionar'}
+        </button>
+      </div>
     </div>
-  )
+  );
 }
-
-export default FoodCard

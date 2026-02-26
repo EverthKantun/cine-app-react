@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Palomitas Grande",
+    "category": "Palomitas",
+    "price": 85.00,
+    "image": "https://images.unsplash.com/photo-1585647347384-2593bc35786b?w=400"
+  },
+  {
+    "id": 2,
+    "name": "Palomitas Mediana",
+    "category": "Palomitas",
+    "price": 65.00,
+    "image": "https://images.unsplash.com/photo-1578849278619-e73505e9610f?w=400"
+  },
+  {
+    "id": 3,
+    "name": "Refresco Grande",
+    "category": "Bebidas",
+    "price": 55.00,
+    "image": "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400"
+  },
+  {
+    "id": 4,
+    "name": "Refresco Mediano",
+    "category": "Bebidas",
+    "price": 45.00,
+    "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400"
+  },
+  {
+    "id": 5,
+    "name": "Nachos con Queso",
+    "category": "Snacks",
+    "price": 75.00,
+    "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=400"
+  },
+  {
+    "id": 6,
+    "name": "Hot Dog Especial",
+    "category": "Comida",
+    "price": 95.00,
+    "image": "https://images.unsplash.com/photo-1612392062798-2dbaa2c95d6e?w=400"
+  },
+  {
+    "id": 7,
+    "name": "Combo Pareja",
+    "category": "Combos",
+    "price": 185.00,
+    "image": "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=400"
+  },
+  {
+    "id": 8,
+    "name": "Combo Familiar",
+    "category": "Combos",
+    "price": 320.00,
+    "image": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400"
+  },
+  {
+    "id": 9,
+    "name": "Dulces Surtidos",
+    "category": "Dulces",
+    "price": 45.00,
+    "image": "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=400"
+  },
+  {
+    "id": 10,
+    "name": "Chocolate Bar",
+    "category": "Dulces",
+    "price": 38.00,
+    "image": "https://images.unsplash.com/photo-1511381939415-e44015466834?w=400"
+  }
+]
