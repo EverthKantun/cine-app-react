@@ -1,0 +1,19 @@
+.info-page {
+  min-height: 60vh;
+  padding: 60px 0;
+  background-color: var(--color-background);
+}
+
+.info-page h1 {
+  font-size: 36px;
+  color: var(--color-primary-dark);
+  margin-bottom: 24px;
+}
+
+.info-page p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+  max-width: 800px;
+}

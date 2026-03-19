@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Carousel } from '../components/Carousel/Carousel';
 import './Home.css';
 
 export function Home() {
@@ -6,19 +7,8 @@ export function Home() {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <h1 className="hero-title">Bienvenido a CinexPopuli</h1>
-          <p className="hero-subtitle">
-            Vive la mejor experiencia cinematográfica
-          </p>
-          <button onClick={() => navigate('/cartelera')} className="btn-hero">
-            Ver Cartelera
-          </button>
-        </div>
-      </section>
+      {/* Hero Swiper Section */}
+      <Carousel />
 
       {/* Quick Access Section */}
       <section className="quick-access">
