@@ -1,40 +1,27 @@
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Home } from './pages/Home';
 import { Cartelera } from './pages/Cartelera';
 import { Alimentos } from './pages/Alimentos';
 import { Promociones } from './pages/Promociones';
-import './app.css';
+import { MovieDetail } from './pages/MovieDetail';
+import { Checkout } from './pages/Checkout';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const handleNavigate = (page) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <Home onNavigate={handleNavigate} />;
-      case 'cartelera':
-        return <Cartelera />;
-      case 'alimentos':
-        return <Alimentos />;
-      case 'promociones':
-        return <Promociones />;
-      default:
-        return <Home onNavigate={handleNavigate} />;
-    }
-  };
-
   return (
     <div className="app">
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      <Header />
       
       <main className="main-content">
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cartelera" element={<Cartelera />} />
+          <Route path="/pelicula/:id" element={<MovieDetail />} />
+          <Route path="/alimentos" element={<Alimentos />} />
+          <Route path="/otros" element={<Promociones />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
       </main>
       
       <footer className="app-footer">

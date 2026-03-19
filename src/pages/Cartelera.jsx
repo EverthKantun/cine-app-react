@@ -1,21 +1,10 @@
-import { useState } from 'react';
+import { useAppContext } from '../context/AppContext';
 import { MovieCard } from '../components/MovieCard/MovieCard';
-import { Form } from '../components/Form/Form';
 import moviesData from '../data/movies.json';
 import './Cartelera.css';
 
 export function Cartelera() {
-  const [favorites, setFavorites] = useState([]);
-
-  const handleToggleFavorite = (movieId) => {
-    setFavorites(prev => {
-      if (prev.includes(movieId)) {
-        return prev.filter(id => id !== movieId);
-      } else {
-        return [...prev, movieId];
-      }
-    });
-  };
+  const { favorites, toggleFavorite } = useAppContext();
 
   return (
     <div className="cartelera-page">
@@ -42,15 +31,10 @@ export function Cartelera() {
                 key={movie.id}
                 movie={movie}
                 isFavorite={favorites.includes(movie.id)}
-                onToggleFavorite={handleToggleFavorite}
+                onToggleFavorite={toggleFavorite}
               />
             ))}
           </div>
-        </section>
-
-        {/* Form Section */}
-        <section className="form-section">
-          <Form movies={moviesData} />
         </section>
       </div>
     </div>

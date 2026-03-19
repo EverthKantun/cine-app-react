@@ -17,8 +17,8 @@ body {
   padding: 0;
   font-family: var(--font-family-base, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif);
-  background-color: var(--color-background, #FAFAFA);
-  color: var(--color-text-primary, #212121);
+  background-color: var(--color-background, var(--color-background));
+  color: var(--color-text-primary, var(--color-text-primary));
   font-size: var(--font-size-body, 16px);
   line-height: 1.6;
 }
@@ -77,26 +77,26 @@ select {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-background, #FAFAFA);
+  background: var(--color-background, var(--color-background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-text-secondary, #757575);
+  background: var(--color-text-secondary, var(--color-text-secondary));
   border-radius: var(--radius-full, 9999px);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary, #144272);
+  background: var(--color-primary, var(--color-primary));
 }
 
 /* Selection */
 ::selection {
-  background-color: var(--color-accent, #FFC107);
-  color: var(--color-text-primary, #212121);
+  background-color: var(--color-accent, var(--color-accent));
+  color: var(--color-text-primary, var(--color-text-primary));
 }
 
 /* Focus Styles */
 :focus-visible {
-  outline: 2px solid var(--color-accent, #FFC107);
+  outline: 2px solid var(--color-accent, var(--color-accent));
   outline-offset: 2px;
 }

@@ -1,6 +1,6 @@
 .cartelera-page {
   min-height: 100vh;
-  background-color: #FAFAFA;
+  background-color: var(--color-background);
   padding: 60px 0;
 }
 
@@ -19,13 +19,13 @@
 .page-title {
   font-size: 48px;
   font-weight: bold;
-  color: #0B2B4E;
+  color: var(--color-primary-dark);
   margin: 0 0 16px 0;
 }
 
 .page-subtitle {
   font-size: 18px;
-  color: #757575;
+  color: var(--color-text-secondary);
   margin: 0 0 24px 0;
 }
 
@@ -33,13 +33,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #FFFFFF;
+  background-color: var(--color-surface);
   padding: 12px 24px;
   border-radius: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-size: 16px;
   font-weight: 600;
-  color: #D32F2F;
+  color: var(--color-error);
 }
 
 .heart-emoji {
@@ -61,7 +61,7 @@
 .form-section {
   margin-top: 80px;
   padding-top: 80px;
-  border-top: 2px solid #E0E0E0;
+  border-top: 2px solid var(--color-border);
 }
 
 /* Responsive */

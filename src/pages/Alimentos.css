@@ -1,6 +1,6 @@
 .alimentos-page {
   min-height: 100vh;
-  background-color: #FAFAFA;
+  background-color: var(--color-background);
   padding: 60px 0;
 }
 
@@ -19,13 +19,13 @@
 .page-title {
   font-size: 48px;
   font-weight: bold;
-  color: #0B2B4E;
+  color: var(--color-primary-dark);
   margin: 0 0 16px 0;
 }
 
 .page-subtitle {
   font-size: 18px;
-  color: #757575;
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
@@ -38,7 +38,7 @@
 .categories-title {
   font-size: 22px;
   font-weight: 600;
-  color: #212121;
+  color: var(--color-text-primary);
   margin: 0 0 20px 0;
 }
 
@@ -51,9 +51,9 @@
 
 .category-badge {
   padding: 10px 20px;
-  background-color: #FFFFFF;
-  color: #144272;
-  border: 2px solid #144272;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
   border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
@@ -61,8 +61,8 @@
 }
 
 .category-badge:hover {
-  background-color: #144272;
-  color: #FFFFFF;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
   transform: translateY(-2px);
 }
 
@@ -97,11 +97,11 @@
 }
 
 .summary-card {
-  background: linear-gradient(135deg, #0B2B4E 0%, #144272 100%);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   border-radius: 12px;
   padding: 32px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  color: #FFFFFF;
+  color: var(--color-surface);
 }
 
 .summary-title {
@@ -136,7 +136,7 @@
 .summary-value {
   font-size: 24px;
   font-weight: bold;
-  color: #FFC107;
+  color: var(--color-accent);
 }
 
 .total-label {
@@ -146,14 +146,14 @@
 .total-value {
   font-size: 32px;
   font-weight: bold;
-  color: #FFC107;
+  color: var(--color-accent);
 }
 
 .btn-checkout {
   width: 100%;
   padding: 16px;
-  background-color: #FFC107;
-  color: #212121;
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
   border: none;
   border-radius: 8px;
   font-size: 18px;
@@ -165,7 +165,7 @@
 }
 
 .btn-checkout:hover {
-  background-color: #FFB300;
+  background-color: var(--color-accent-light);
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(255, 193, 7, 0.4);
 }

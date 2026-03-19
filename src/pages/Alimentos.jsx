@@ -1,23 +1,13 @@
-import { useState } from 'react';
+import { useAppContext } from '../context/AppContext';
 import { FoodCard } from '../components/FoodCard/FoodCard';
 import foodsData from '../data/foods.json';
 import './Alimentos.css';
 
 export function Alimentos() {
-  const [selectedItems, setSelectedItems] = useState([]);
-
-  const handleSelect = (foodId) => {
-    setSelectedItems(prev => {
-      if (prev.includes(foodId)) {
-        return prev.filter(id => id !== foodId);
-      } else {
-        return [...prev, foodId];
-      }
-    });
-  };
+  const { cart, toggleCartItem } = useAppContext();
 
   const calculateTotal = () => {
-    return selectedItems.reduce((total, itemId) => {
+    return cart.reduce((total, itemId) => {
       const item = foodsData.find(food => food.id === itemId);
       return total + (item?.price || 0);
     }, 0);
@@ -55,22 +45,22 @@ export function Alimentos() {
               <FoodCard
                 key={food.id}
                 food={food}
-                isSelected={selectedItems.includes(food.id)}
-                onSelect={handleSelect}
+                isSelected={cart.includes(food.id)}
+                onSelect={toggleCartItem}
               />
             ))}
           </div>
         </section>
 
         {/* Selected Items Summary */}
-        {selectedItems.length > 0 && (
+        {cart.length > 0 && (
           <section className="summary-section">
             <div className="summary-card">
               <h3 className="summary-title">Resumen de Selección</h3>
               <div className="summary-content">
                 <div className="summary-items">
                   <span className="summary-label">Productos seleccionados:</span>
-                  <span className="summary-value">{selectedItems.length}</span>
+                  <span className="summary-value">{cart.length}</span>
                 </div>
                 <div className="summary-total">
                   <span className="total-label">Total:</span>

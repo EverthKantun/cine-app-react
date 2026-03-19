@@ -1,15 +1,15 @@
 import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 
-export function Header({ currentPage, onNavigate }) {
+export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleNavClick = (page) => {
-    onNavigate(page);
+  const closeMenu = () => {
     setMenuOpen(false);
   };
 
@@ -17,9 +17,9 @@ export function Header({ currentPage, onNavigate }) {
     <header className="header">
       <div className="header-container">
         <div className="header-logo">
-          <h1 className="logo-text" onClick={() => handleNavClick('home')} style={{ cursor: 'pointer' }}>
-            CinePro
-          </h1>
+          <Link to="/" className="logo-text" onClick={closeMenu}>
+            CinexPopuli
+          </Link>
         </div>
 
         <button 
@@ -37,36 +37,40 @@ export function Header({ currentPage, onNavigate }) {
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
           <ul className="nav-list">
             <li>
-              <button 
-                className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
-                onClick={() => handleNavClick('home')}
+              <NavLink 
+                to="/" 
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                onClick={closeMenu}
               >
                 Inicio
-              </button>
+              </NavLink>
             </li>
             <li>
-              <button 
-                className={`nav-link ${currentPage === 'cartelera' ? 'active' : ''}`}
-                onClick={() => handleNavClick('cartelera')}
+              <NavLink 
+                to="/cartelera" 
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                onClick={closeMenu}
               >
                 Cartelera
-              </button>
+              </NavLink>
             </li>
             <li>
-              <button 
-                className={`nav-link ${currentPage === 'alimentos' ? 'active' : ''}`}
-                onClick={() => handleNavClick('alimentos')}
+              <NavLink 
+                to="/alimentos" 
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                onClick={closeMenu}
               >
                 Alimentos
-              </button>
+              </NavLink>
             </li>
             <li>
-              <button 
-                className={`nav-link ${currentPage === 'promociones' ? 'active' : ''}`}
-                onClick={() => handleNavClick('promociones')}
+              <NavLink 
+                to="/otros" 
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                onClick={closeMenu}
               >
                 Promociones
-              </button>
+              </NavLink>
             </li>
           </ul>
         </nav>

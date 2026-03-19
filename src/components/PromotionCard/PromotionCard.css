@@ -1,5 +1,5 @@
 .promotion-card {
-  background-color: #FFFFFF;
+  background-color: var(--color-surface);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-left: 4px solid #FFC107;
+  border-left: 4px solid var(--color-accent);
 }
 
 .promotion-card:hover {
@@ -16,12 +16,12 @@
 }
 
 .promotion-header {
-  background: linear-gradient(135deg, #0B2B4E 0%, #144272 100%);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   padding: 16px 20px;
 }
 
 .promotion-badge {
-  color: #FFC107;
+  color: var(--color-accent);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -36,13 +36,13 @@
 .promotion-title {
   font-size: 20px;
   font-weight: 600;
-  color: #212121;
+  color: var(--color-text-primary);
   margin: 0 0 12px 0;
   line-height: 1.4;
 }
 
 .promotion-body {
-  color: #757575;
+  color: var(--color-text-secondary);
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
@@ -55,8 +55,8 @@
 .btn-read-more {
   width: 100%;
   padding: 12px 16px;
-  background-color: #FFC107;
-  color: #212121;
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -66,7 +66,7 @@
 }
 
 .btn-read-more:hover {
-  background-color: #FFB300;
+  background-color: var(--color-accent-light);
   transform: scale(1.03);
 }
 

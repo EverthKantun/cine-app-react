@@ -1,19 +1,20 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MovieCard.css';
 
 export function MovieCard({ movie, onToggleFavorite, isFavorite }) {
-  const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
 
-  const handleToggleFavorite = () => {
+  const handleToggleFavorite = (e) => {
+    e.stopPropagation();
     onToggleFavorite(movie.id);
   };
 
-  const toggleExpand = () => {
-    setExpanded(!expanded);
+  const handleCardClick = () => {
+    navigate(`/pelicula/${movie.id}`);
   };
 
   return (
-    <div className={`movie-card ${expanded ? 'expanded' : ''}`}>
+    <div className="movie-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <div className="movie-image-container">
         <img 
           src={movie.image} 
@@ -35,12 +36,6 @@ export function MovieCard({ movie, onToggleFavorite, isFavorite }) {
         
         <div className="movie-duration">{movie.duration}</div>
         
-        {expanded && (
-          <div className="movie-description">
-            <p>{movie.description}</p>
-          </div>
-        )}
-        
         <div className="movie-actions">
           <button 
             className={`btn-favorite ${isFavorite ? 'active' : ''}`}
@@ -53,9 +48,9 @@ export function MovieCard({ movie, onToggleFavorite, isFavorite }) {
           
           <button 
             className="btn-more"
-            onClick={toggleExpand}
+            onClick={handleCardClick}
           >
-            {expanded ? 'Ver menos' : 'Ver más'}
+            Ver más
           </button>
         </div>
       </div>

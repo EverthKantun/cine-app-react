@@ -1,5 +1,5 @@
 .header {
-  background-color: #0B2B4E;
+  background-color: var(--color-primary-dark);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
@@ -23,7 +23,7 @@
 .logo-text {
   font-size: 28px;
   font-weight: bold;
-  color: #FFC107;
+  color: var(--color-accent);
   margin: 0;
   text-decoration: none;
   letter-spacing: 1px;
@@ -48,7 +48,7 @@
 .hamburger span {
   display: block;
   height: 3px;
-  background-color: #FFC107;
+  background-color: var(--color-accent);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -79,7 +79,7 @@
 }
 
 .nav-link {
-  color: #FFFFFF;
+  color: var(--color-surface);
   background: none;
   border: none;
   text-decoration: none;
@@ -100,12 +100,12 @@
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background-color: #FFC107;
+  background-color: var(--color-accent);
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #FFC107;
+  color: var(--color-accent);
 }
 
 .nav-link:hover::after {
@@ -113,7 +113,7 @@
 }
 
 .nav-link.active {
-  color: #FFC107;
+  color: var(--color-accent);
   background-color: rgba(255, 193, 7, 0.1);
 }
 
@@ -132,7 +132,7 @@
     top: 70px;
     left: 0;
     right: 0;
-    background-color: #0B2B4E;
+    background-color: var(--color-primary-dark);
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;

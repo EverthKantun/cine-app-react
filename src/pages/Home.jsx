@@ -1,17 +1,20 @@
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
-export function Home({ onNavigate }) {
+export function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="home-page">
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="hero-title">Bienvenido a CinePro</h1>
+          <h1 className="hero-title">Bienvenido a CinexPopuli</h1>
           <p className="hero-subtitle">
             Vive la mejor experiencia cinematográfica
           </p>
-          <button onClick={() => onNavigate('cartelera')} className="btn-hero">
+          <button onClick={() => navigate('/cartelera')} className="btn-hero">
             Ver Cartelera
           </button>
         </div>
@@ -23,19 +26,19 @@ export function Home({ onNavigate }) {
           <h2 className="section-title">Explora Nuestros Servicios</h2>
           
           <div className="quick-grid">
-            <button onClick={() => onNavigate('cartelera')} className="quick-card">
+            <button onClick={() => navigate('/cartelera')} className="quick-card">
               <div className="quick-icon">🎬</div>
               <h3>Cartelera</h3>
               <p>Descubre las películas en estreno</p>
             </button>
 
-            <button onClick={() => onNavigate('alimentos')} className="quick-card">
+            <button onClick={() => navigate('/alimentos')} className="quick-card">
               <div className="quick-icon">🍿</div>
               <h3>Alimentos</h3>
               <p>Palomitas, refrescos y más</p>
             </button>
 
-            <button onClick={() => onNavigate('promociones')} className="quick-card">
+            <button onClick={() => navigate('/otros')} className="quick-card">
               <div className="quick-icon">🎁</div>
               <h3>Promociones</h3>
               <p>Ofertas especiales para ti</p>
@@ -54,7 +57,7 @@ export function Home({ onNavigate }) {
                 Descubre nuestras promociones exclusivas y ahorra en tu próxima visita al cine. 
                 Ofertas especiales cada semana.
               </p>
-              <button onClick={() => onNavigate('promociones')} className="btn-promo">
+              <button onClick={() => navigate('/otros')} className="btn-promo">
                 Ver Todas las Promociones
               </button>
             </div>
@@ -96,7 +99,7 @@ export function Home({ onNavigate }) {
           </div>
 
           <div className="food-cta">
-            <button onClick={() => onNavigate('alimentos')} className="btn-food">
+            <button onClick={() => navigate('/alimentos')} className="btn-food">
               Ver Menú Completo
             </button>
           </div>
