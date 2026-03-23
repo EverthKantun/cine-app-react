@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
-import moviesData from '../data/movies.json';
+import { getMovieById } from '../services/movieService';
 import './MovieDetail.css';
 
 export function MovieDetail() {
@@ -8,7 +8,7 @@ export function MovieDetail() {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useAppContext();
   
-  const movie = moviesData.find(m => m.id === parseInt(id));
+  const movie = getMovieById(id);
   
   if (!movie) {
     return (
@@ -27,9 +27,6 @@ export function MovieDetail() {
     // Navigate to checkout with the selected movie and time
     navigate('/checkout', { state: { movieId: movie.id, time } });
   };
-
-  // Mocked schedules
-  const schedules = ['14:00', '16:30', '19:00', '21:30'];
 
   return (
     <div className="movie-detail-page">
@@ -77,7 +74,7 @@ export function MovieDetail() {
               <h3>Horarios Disponibles</h3>
               <p className="schedules-help">Selecciona un horario para comprar tus boletos</p>
               <div className="schedules-grid">
-                {schedules.map(time => (
+                {movie.schedules.map(time => (
                   <button 
                     key={time} 
                     className="btn-schedule"

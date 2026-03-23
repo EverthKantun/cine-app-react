@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MovieCard.css';
 
-export function MovieCard({ movie, onToggleFavorite, isFavorite }) {
+export const MovieCard = memo(function MovieCard({ movie, onToggleFavorite, isFavorite }) {
   const navigate = useNavigate();
 
   const handleToggleFavorite = (e) => {
@@ -56,4 +57,4 @@ export function MovieCard({ movie, onToggleFavorite, isFavorite }) {
       </div>
     </div>
   );
-}
+});

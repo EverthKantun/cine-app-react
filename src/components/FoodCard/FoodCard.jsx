@@ -1,10 +1,7 @@
+import { memo } from 'react';
 import './FoodCard.css';
 
-export function FoodCard({ food, isSelected, onSelect }) {
-  const handleSelect = () => {
-    onSelect(food.id);
-  };
-
+export const FoodCard = memo(function FoodCard({ food, quantity, onUpdateQuantity }) {
   const formatPrice = (price) => {
     return new Intl.NumberFormat('es-MX', {
       style: 'currency',
@@ -13,7 +10,7 @@ export function FoodCard({ food, isSelected, onSelect }) {
   };
 
   return (
-    <div className={`food-card ${isSelected ? 'selected' : ''}`}>
+    <div className={`food-card ${quantity > 0 ? 'selected' : ''}`}>
       <div className="food-image-container">
         <img 
           src={food.image} 
@@ -28,13 +25,21 @@ export function FoodCard({ food, isSelected, onSelect }) {
         <h3 className="food-name">{food.name}</h3>
         <div className="food-price">{formatPrice(food.price)}</div>
         
-        <button 
-          className={`btn-select ${isSelected ? 'selected' : ''}`}
-          onClick={handleSelect}
-        >
-          {isSelected ? '✓ Seleccionado' : 'Seleccionar'}
-        </button>
+        {quantity > 0 ? (
+          <div className="food-quantity-controls">
+            <button className="btn-qty" onClick={() => onUpdateQuantity(food.id, -1)}>-</button>
+            <span className="qty-value">{quantity}</span>
+            <button className="btn-qty" onClick={() => onUpdateQuantity(food.id, 1)}>+</button>
+          </div>
+        ) : (
+          <button 
+            className="btn-select"
+            onClick={() => onUpdateQuantity(food.id, 1)}
+          >
+            Agregar
+          </button>
+        )}
       </div>
     </div>
   );
-}
+});

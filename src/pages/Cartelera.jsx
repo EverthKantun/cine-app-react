@@ -1,10 +1,14 @@
+import { useMemo } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { MovieCard } from '../components/MovieCard/MovieCard';
-import moviesData from '../data/movies.json';
+import { getMovies } from '../services/movieService';
 import './Cartelera.css';
 
 export function Cartelera() {
   const { favorites, toggleFavorite } = useAppContext();
+  
+  // Memoize the data fetch so it doesn't recalculate on re-renders (like when favorites change)
+  const movies = useMemo(() => getMovies(), []);
 
   return (
     <div className="cartelera-page">
@@ -26,7 +30,7 @@ export function Cartelera() {
         {/* Movies Grid */}
         <section className="movies-section">
           <div className="movies-grid">
-            {moviesData.map(movie => (
+            {movies.map(movie => (
               <MovieCard
                 key={movie.id}
                 movie={movie}

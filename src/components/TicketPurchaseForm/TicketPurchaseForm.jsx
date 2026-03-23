@@ -1,66 +1,43 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useFormValidation } from '../../hooks/useFormValidation';
+import { useAppContext } from '../../context/AppContext';
 import './TicketPurchaseForm.css';
 
-export function TicketPurchaseForm({ movie, time }) {
+export function TicketPurchaseForm({ movie, time, hasFood }) {
   const navigate = useNavigate();
+  const { clearCart } = useAppContext();
+  const [submitted, setSubmitted] = useState(false);
   
-  const [formData, setFormData] = useState({
+  const { formData, errors, handleChange, validate } = useFormValidation({
     name: '',
     email: '',
-    quantity: '1'
+    quantity: movie ? '1' : '0'
   });
-
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'El nombre es requerido';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'El email es requerido';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email inválido';
-    }
-
-    if (parseInt(formData.quantity) < 1) {
-      newErrors.quantity = 'La cantidad debe ser al menos 1';
-    }
-
-    return newErrors;
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const validationErrors = validateForm();
-    
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+    const rules = {
+      name: [{ test: (v) => v.trim().length > 0, message: 'El nombre es requerido' }],
+      email: [
+        { test: (v) => v.trim().length > 0, message: 'El email es requerido' },
+        { test: (v) => /\S+@\S+\.\S+/.test(v), message: 'Email inválido' }
+      ]
+    };
 
-    setSubmitted(true);
+    if (movie) {
+      rules.quantity = [
+        { test: (v) => parseInt(v) >= 1, message: 'La cantidad debe ser al menos 1' },
+      ];
+    }
+    
+    if (validate(rules)) {
+      setSubmitted(true);
+      if (hasFood) {
+        clearCart();
+      }
+    }
   };
 
   if (submitted) {
@@ -72,12 +49,19 @@ export function TicketPurchaseForm({ movie, time }) {
           <div className="success-details">
             <p><strong>Nombre:</strong> {formData.name}</p>
             <p><strong>Email:</strong> {formData.email}</p>
-            <p><strong>Película:</strong> {movie?.title}</p>
-            <p><strong>Horario:</strong> {time}</p>
-            <p><strong>Cantidad:</strong> {formData.quantity} boleto(s)</p>
+            {movie && (
+              <>
+                <p><strong>Película:</strong> {movie.title}</p>
+                <p><strong>Horario:</strong> {time}</p>
+                <p><strong>Cantidad boletos:</strong> {formData.quantity}</p>
+              </>
+            )}
+            {hasFood && (
+              <p><strong>Dulcería:</strong> Sus productos estarán listos.</p>
+            )}
           </div>
           <p className="success-message">
-            Recibirás un email de confirmación en breve.
+            Recibirás un email de confirmación en breve con tus recibos.
           </p>
           <button 
             className="btn-submit" 
@@ -95,7 +79,7 @@ export function TicketPurchaseForm({ movie, time }) {
     <div className="form-container">
       <div className="form-header" style={{ marginBottom: '24px' }}>
         <h2 className="form-title">Tus Datos</h2>
-        <p className="form-subtitle">Completa el formulario para reservar tus boletos</p>
+        <p className="form-subtitle">Completa el formulario para reservar</p>
       </div>
 
       <form onSubmit={handleSubmit} className="ticket-form">
@@ -127,20 +111,22 @@ export function TicketPurchaseForm({ movie, time }) {
           {errors.email && <span className="error-message">{errors.email}</span>}
         </div>
 
-        <div className="form-group">
-          <label htmlFor="quantity" className="form-label">Cantidad de Boletos</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            min="1"
-            max="10"
-            className={`form-input ${errors.quantity ? 'error' : ''}`}
-          />
-          {errors.quantity && <span className="error-message">{errors.quantity}</span>}
-        </div>
+        {movie && (
+          <div className="form-group">
+            <label htmlFor="quantity" className="form-label">Cantidad de Boletos</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value={formData.quantity}
+              onChange={handleChange}
+              min="1"
+              max="10"
+              className={`form-input ${errors.quantity ? 'error' : ''}`}
+            />
+            {errors.quantity && <span className="error-message">{errors.quantity}</span>}
+          </div>
+        )}
 
         <button type="submit" className="btn-submit">
           Confirmar y Pagar

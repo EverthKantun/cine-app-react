@@ -77,44 +77,54 @@
   gap: 32px;
 }
 
-/* Summary Section */
-.summary-section {
-  position: sticky;
-  bottom: 20px;
-  z-index: 100;
-  animation: slideUp 0.4s ease;
+/* Layout Redesign */
+.alimentos-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
 }
 
-@keyframes slideUp {
+.alimentos-main {
+  flex: 1;
+}
+
+.alimentos-sidebar {
+  width: 320px;
+  position: sticky;
+  top: 100px;
+  animation: slideLeft 0.4s ease;
+}
+
+@keyframes slideLeft {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-.summary-card {
+.sidebar-style {
   background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   border-radius: 12px;
-  padding: 32px;
+  padding: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   color: var(--color-surface);
 }
 
 .summary-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 0 0 24px 0;
+  margin: 0 0 20px 0;
   text-align: center;
 }
 
-.summary-content {
+.sidebar-layout {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 24px;
   padding-bottom: 24px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -123,8 +133,9 @@
 .summary-items,
 .summary-total {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .summary-label,
@@ -134,7 +145,7 @@
 }
 
 .summary-value {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: var(--color-accent);
 }
@@ -144,19 +155,19 @@
 }
 
 .total-value {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: bold;
   color: var(--color-accent);
 }
 
 .btn-checkout {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   background-color: var(--color-accent);
   color: var(--color-text-primary);
   border: none;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -174,11 +185,58 @@
   transform: translateY(0);
 }
 
+/* Quantity Controls for FoodCard */
+.food-quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  background: var(--color-background);
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.btn-qty {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  transition: all 0.2s;
+}
+
+.btn-qty:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.qty-value {
+  font-weight: bold;
+  font-size: 16px;
+  width: 30px;
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .foods-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+  }
+  .alimentos-layout {
+    flex-direction: column;
+  }
+  .alimentos-sidebar {
+    width: 100%;
+    position: static;
   }
 }
 
@@ -208,19 +266,8 @@
     gap: 20px;
   }
 
-  .summary-card {
-    padding: 24px;
-  }
-
-  .summary-content {
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
-  }
-
-  .summary-items,
-  .summary-total {
-    width: 100%;
+  .sidebar-style {
+    padding: 20px;
   }
 }
 
@@ -245,17 +292,5 @@
 
   .categories-title {
     font-size: 18px;
-  }
-
-  .summary-title {
-    font-size: 20px;
-  }
-
-  .total-value {
-    font-size: 28px;
-  }
-
-  .btn-checkout {
-    font-size: 16px;
   }
 }
